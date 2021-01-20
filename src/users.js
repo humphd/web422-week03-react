@@ -1,7 +1,7 @@
 const apiUrl = "https://reqres.in/api";
 
-function load() {
-  const url = `${apiUrl}/users`;
+function load(page = 1) {
+  const url = `${apiUrl}/users?page=${page}`;
 
   return fetch(url)
     .then((res) => {
@@ -11,12 +11,14 @@ function load() {
 
       return res.json();
     })
-    .then((results) => results.data)
     .catch((err) => {
       console.warn(err);
 
-      // We have no users to process, return an empty array
-      return [];
+      // We have no users to process, return an empty object
+      return {
+        page,
+        data: [],
+      };
     });
 }
 

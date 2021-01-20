@@ -1,5 +1,10 @@
 /* Make sure the width is consistent for each, and wrap them if necessary */
-.App {
+.profile-cards {
   display: flex;
   flex-wrap: wrap;
+}
+
+.paging-button {
+  margin: 20px;
+  width: 100px;
 }
