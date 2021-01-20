@@ -1,25 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
+import load from "./users";
 import ProfileCard from "./ProfileCard";
 
 function App() {
-  const [users, setUsers] = useState([
-    {
-      id: 1,
-      email: "george.bluth@reqres.in",
-      first_name: "George",
-      last_name: "Bluth",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-    },
-    {
-      id: 2,
-      email: "janet.weaver@reqres.in",
-      first_name: "Janet",
-      last_name: "Weaver",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-    },
-  ]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    load().then((results) => setUsers(results));
+  }, []);
 
   const profileCards = users.map((user) => (
     <ProfileCard key={user.id} user={user} />
