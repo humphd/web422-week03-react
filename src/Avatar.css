@@ -1,0 +1,6 @@
+/* Make the avatar's edge rounded, add a border, and fill the background */
+.profile-avatar {
+  border-radius: 50%;
+  border: 3px solid #0074D9;
+  background-color: #0074D9;
+}

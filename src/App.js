@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import ProfileCard from './ProfileCard';
 
 function App() {
+  // {
+  //   "id": 1,
+  //   "email": "george.bluth@reqres.in",
+  //   "first_name": "George",
+  //   "last_name": "Bluth",
+  //   "avatar": "https://reqres.in/img/faces/1-image.jpg"
+  // }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProfileCard id="1" email="george.bluth" name="George Bluth" avatarUrl="https://reqres.in/img/faces/1-image.jpg" />
     </div>
   );
 }
