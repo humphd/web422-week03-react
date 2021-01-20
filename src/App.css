@@ -1,0 +1,5 @@
+/* Make sure the width is consistent for each, and wrap them if necessary */
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
