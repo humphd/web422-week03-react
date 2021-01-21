@@ -1,3 +1,4 @@
+// We'll use two of React's built-in Hook functions
 import { useState, useEffect } from "react";
 
 import "./App.css";

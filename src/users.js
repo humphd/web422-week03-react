@@ -1,5 +1,6 @@
 const apiUrl = "https://reqres.in/api";
 
+// Set a default page number of 1, in case the caller doesn't pass us one.
 function load(page = 1) {
   const url = `${apiUrl}/users?page=${page}`;
 
