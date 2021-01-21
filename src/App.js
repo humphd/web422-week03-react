@@ -9,7 +9,8 @@ function App() {
   // We'll manage some state in our App component.  We set some initial, default
   // state, but after the first run, the values we get will be whatever was
   // stored using the set*() function below.
-  const [pages, setPages] = useState({ current: 1 });
+  const [totalPages, setTotalPages] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [users, setUsers] = useState([]);
 
   // Create a side effect, such that we load the current page of
@@ -18,13 +19,13 @@ function App() {
   // we don't need to do anything. When the load Promise finishes,
   // we'll update our state with new values, and this will trigger
   // the component to re-render, with updated values.
-  const { current } = pages;
   useEffect(() => {
-    loadUsers([current]).then((result) => {
-      setPages({ current: result.page, total: result.total_pages });
+    loadUsers(currentPage).then((result) => {
+      setTotalPages(result.total_pages);
+      setCurrentPage(result.page);
       setUsers(result.data);
     });
-  }, [current]);
+  }, [currentPage]);
 
   // Define a function to deal with a new page number being selected.
   // The actual event that triggers this will happen in <PagingButton>
@@ -32,7 +33,7 @@ function App() {
   // we update our `pages` state, copying over the existing values, but updating
   // the current page to the new one.  Doing so will cause our effect above
   // to re-run, since the value of pages.current will have updated.
-  const handlePageChange = (page) => setPages({ ...pages, current: page });
+  const handlePageChange = (page) => setCurrentPage(page);
 
   // This is the "render" part of our component.  We return the React Elements
   // we want to use when representing our UI.  In reality, we "render" a tree
@@ -41,8 +42,8 @@ function App() {
     <div className="App">
       <header className="paging-button">
         <PagingButton
-          current={pages.current}
-          total={pages.total}
+          current={currentPage}
+          total={totalPages}
           onPageChange={handlePageChange}
         />
       </header>
