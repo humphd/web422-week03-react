@@ -14,9 +14,10 @@ function load(page = 1) {
     .catch((err) => {
       console.warn(err);
 
-      // We have no users to process, return an empty object
+      // We have no users to process, return an default object
       return {
-        page,
+        page: 1,
+        total: 1,
         data: [],
       };
     });
