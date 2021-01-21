@@ -41,13 +41,11 @@ function App() {
   // of elements, returning a single root element.
   return (
     <div className="App">
-      <header className="paging-button">
-        <PagingButton
-          current={currentPage}
-          total={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </header>
+      <PagingButton
+        current={currentPage}
+        total={totalPages}
+        onPageChange={handlePageChange}
+      />
 
       <main className="profile-cards">
         <Profiles users={users} />

@@ -3,9 +3,3 @@
   display: flex;
   flex-wrap: wrap;
 }
-
-/* Give some room around our paging button */
-.paging-button {
-  margin: 20px;
-  width: 100px;
-}

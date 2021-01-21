@@ -1,3 +1,5 @@
+import "./PagingButton.css";
+
 // Our PagingButton receives props like other components, but one
 // of those is different than we've seen before: onPageChange is
 // a reference to a function that is passed down from the parent.
@@ -25,7 +27,7 @@ function PagingButton({ current, total, onPageChange }) {
   const label = current === total ? "Previous" : "Next";
 
   return (
-    <button className="pages-button" onClick={onClickHandler}>
+    <button className="paging-button" onClick={onClickHandler}>
       {label}
     </button>
   );
